@@ -61,7 +61,7 @@ class Deviation(object):
             self.category_path = d['category_path']
 
         if 'is_favourited' in d:
-            self.is_downloadable = d['is_downloadable']
+            self.is_favourited = d['is_favourited']
 
         if 'is_deleted' in d:
             self.is_deleted = d['is_deleted']
