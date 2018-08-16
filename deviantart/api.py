@@ -1,9 +1,9 @@
 """
     deviantart.api
     ^^^^^^^^^^^^^^
-    
+
     A Python wrapper for the DeviantArt API
-    
+
     :copyright: (c) 2015 by Kevin Eichhorn
 """
 
@@ -23,6 +23,7 @@ from .comment import Comment
 from .status import Status
 from .message import Message
 
+
 class DeviantartError(Exception):
 
     """Representing API Errors"""
@@ -39,7 +40,7 @@ class Api(object):
        :param client_id: client_id provided by DeviantArt
        :param client_secret: client_secret provided by DeviantArt
        :param standard_grant_type: The used authorization type | client_credentials (read-only) or authorization_code
-       :param scope: The scope of data the application can access    
+       :param scope: The scope of data the application can access
     """
 
     def __init__(
@@ -445,7 +446,7 @@ class Api(object):
         :param offset: the pagination offset
         :param limit: the pagination limit
         """
-        
+
         response = self._req('/deviation/embeddedcontent', {
             'deviationid' : deviationid,
             'offset_deviationid' : offset_deviationid,
@@ -476,12 +477,12 @@ class Api(object):
 
         """Fetch full data that is not included in the main devaition object
 
-        The endpoint works with journals and literatures. Deviation objects returned from API contain only excerpt of a journal, use this endpoint to load full content. 
+        The endpoint works with journals and literatures. Deviation objects returned from API contain only excerpt of a journal, use this endpoint to load full content.
         Any custom CSS rules and fonts applied to journal are also returned.
 
         :param deviationid: UUID of the deviation to fetch full data for
         """
-        
+
         response = self._req('/deviation/content', {
             'deviationid':deviationid
         })
